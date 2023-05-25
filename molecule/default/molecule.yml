@@ -6,58 +6,25 @@ driver:
 platforms:
   - name: centos8
     image: docker.io/pycontribs/centos:8
-    #dockerfile: ./Dockerfile.j2
     pre_build_image: true
     command: /sbin/init
     privileged: true
-#    capabilities:
-#      - SYS_ADMIN
-#    tmpfs:
-#      - /run
-#      - /tmp
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup
-#    env:
-#      ANSIBLE_USER: ansible
-#      SUDO_GROUP: wheel
-#      DEPLOY_GROUP: deployer
-#      container: docker
   - name: centos7
     image: docker.io/pycontribs/centos:7
-    #dockerfile: ../resources/Dockerfile.j2
     pre_build_image: true
     command: /sbin/init
     privileged: true
-#    capabilities:
-#      - SYS_ADMIN
-#    tmpfs:
-#      - /run
-#      - /tmp
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup
-#    env:
-#      ANSIBLE_USER: ansible
-#      SUDO_GROUP: wheel
-#      DEPLOY_GROUP: deployer
-#      container: docker
   - name: ubuntu
     image: docker.io/pycontribs/ubuntu:latest
     dockerfile: ../resources/Dockerfile.j2
-    #pre_build_image: true
     command: /sbin/init
     privileged: true
-#    capabilities:
-#      - SYS_ADMIN
-#    tmpfs:
-#      - /run
-#      - /tmp
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup
-#    env:
-#      ANSIBLE_USER: ansible
-#      SUDO_GROUP: wheel
-#      DEPLOY_GROUP: deployer
-#      container: docker
 provisioner:
   name: ansible
   config_options:
