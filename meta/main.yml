@@ -1,4 +1,6 @@
 galaxy_info:
+  role_name: vector
+  namespace: vector_namespace
   author: Aleksey Shelkovin
   description: This role install vector
   company: netology
