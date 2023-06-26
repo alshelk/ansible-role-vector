@@ -1,0 +1,19 @@
+pipeline {
+    agent {
+        label 'ansible'
+    }
+    stages {
+        stage('Get role') {
+            steps {
+                dir('vector-role') {
+                    git branch: 'main', url: 'https://github.com/alshelk/ansible-role-vector.git'
+                }
+            }
+        }
+        stage('Test role') {
+            steps {
+                sh 'molecule test'
+            }
+        }
+    }
+}
