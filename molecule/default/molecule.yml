@@ -20,6 +20,7 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup
   - name: ubuntu
     image: docker.io/pycontribs/ubuntu:latest
+#    pre_build_image: true
     dockerfile: ../resources/Dockerfile.j2
     command: /sbin/init
     privileged: true
